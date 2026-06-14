@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="{{ site.baseurl }}/" class="site-logo">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ site.baseurl }}/">Posts</a>
+        <a href="{{ site.baseurl }}/about">About</a>
+        <a href="https://github.com/{{ site.github_username }}/Xinnova" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-content">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="tagline">{{ site.tagline }}</p>
+      <p class="copyright">{{ site.title }} &middot; {{ site.description }}</p>
+    </div>
+  </footer>
+</body>
+</html>

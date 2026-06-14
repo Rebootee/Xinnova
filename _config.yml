@@ -1,0 +1,33 @@
+# Xinnova — From photon to wealth.
+# CIS technology & Semiconductor Capital
+
+title: Xinnova
+tagline: From photon to wealth.
+description: CIS technology & Semiconductor Capital — independent analysis of CMOS image sensors, semiconductor markets, and technology investing.
+url: "https://photonwealth.github.io"
+baseurl: "/Xinnova"
+
+author:
+  name: Xinnova
+  email: photonwealth@users.noreply.github.com
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+
+# Social links
+github_username: Photonwealth
+
+# Exclude from processing
+exclude:
+  - README.md
+  - assets/xinnova-banner.svg
+
+# Default front matter
+defaults:
+  - scope:
+      path: "_posts"
+      type: "posts"
+    values:
+      layout: post
+      author: Xinnova

@@ -1,7 +1,11 @@
-# The CIS Market Landscape in 2026: Sony, Samsung, OmniVision, and SmartSens
+---
+title: "The CIS Market Landscape in 2026: Sony, Samsung, OmniVision, and SmartSens"
+date: 2026-06-14
+layout: post
+excerpt: "A cross-verified competitive analysis of the four major CIS players — Sony, Samsung, OmniVision (Will Semiconductor), and SmartSens — covering technology scores, commercial positioning, and investment implications."
+---
 
 > Data window: January 2024 – June 2026
-> Published: 2026-06-14
 
 ---
 

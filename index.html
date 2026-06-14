@@ -1,0 +1,25 @@
+---
+layout: default
+title: CIS Technology & Semiconductor Capital
+---
+
+<section class="home-hero">
+  <h1>Xinnova</h1>
+  <p class="tagline">From photon to wealth. Independent analysis of CMOS image sensors, semiconductor markets, and technology investing.</p>
+</section>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+  <li class="post-item">
+    <a href="{{ site.baseurl }}{{ post.url }}">
+      <h2 class="post-item-title">{{ post.title }}</h2>
+      <div class="post-item-meta">
+        <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%B %d, %Y' }}</time>
+      </div>
+      {% if post.excerpt %}
+      <p class="post-item-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+      {% endif %}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
