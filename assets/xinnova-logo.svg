@@ -1,48 +1,53 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
   <defs>
-    <rect id="bg" x="0" y="0" width="400" height="520" fill="#000000"/>
+    <!-- 哑光黑底渐变 — 极细微的明暗变化营造深色高级感 -->
+    <radialGradient id="bg-light" cx="50%" cy="35%" r="70%">
+      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:1" />
+    </radialGradient>
 
-    <!-- 12道金色太阳辐射 -->
-    <g id="sunburst">
-      <line x1="200" y1="200" x2="200" y2="40" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="200" y2="360" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="40" y2="200" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="360" y2="200" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="87" y2="87" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="313" y2="87" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="87" y2="313" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="313" y2="313" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="117" y2="52" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="283" y2="52" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="117" y2="348" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="283" y2="348" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="52" y2="117" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="348" y2="117" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="52" y2="283" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="348" y2="283" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-    </g>
+    <!-- 紫色圆形徽章渐变 — 中心亮紫到边缘深紫 -->
+    <radialGradient id="purple-badge" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
+    </radialGradient>
 
-    <linearGradient id="orbit-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#C4A35A;stop-opacity:0" />
-      <stop offset="30%" style="stop-color:#F5D68E;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#F5D68E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#C4A35A;stop-opacity:0" />
+    <!-- 琥珀色/金色光晕 — 多层柔光 -->
+    <radialGradient id="amber-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.35" />
+      <stop offset="40%" style="stop-color:#D97706;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:0" />
+    </radialGradient>
+
+    <!-- 深金属金色文字渐变 — 单色高能金属感 -->
+    <linearGradient id="gold-text" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C49B3C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#A67C2E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
     </linearGradient>
 
-    <linearGradient id="purple-x" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7B2D8E;stop-opacity:1" />
-    </linearGradient>
+    <!-- 琥珀外发光滤镜 -->
+    <filter id="halo-glow">
+      <feGaussianBlur stdDeviation="18" result="bigBlur"/>
+      <feMerge>
+        <feMergeNode in="bigBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
 
-    <filter id="gold-glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <!-- 徽章微发光 -->
+    <filter id="badge-glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="yellow-glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
+
+    <!-- 金色文字微光 -->
+    <filter id="gold-shimmer">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -50,55 +55,58 @@
     </filter>
   </defs>
 
-  <!-- Pure black background -->
-  <use href="#bg"/>
+  <!-- 哑光黑背景 -->
+  <rect x="0" y="0" width="400" height="520" fill="url(#bg-light)"/>
 
-  <!-- Golden sunburst (12 symmetrical rays) -->
-  <g opacity="0.7">
-    <use href="#sunburst"/>
+  <!-- 精确的聚光照明 — 顶部中心高光区域 -->
+  <ellipse cx="200" cy="120" rx="160" ry="140" fill="#FFFFFF" opacity="0.03"/>
+
+  <!-- 琥珀色/金色光晕 — 从徽章周围散发 -->
+  <g transform="translate(200, 110)" filter="url(#halo-glow)">
+    <circle cx="0" cy="0" r="65" fill="url(#amber-halo)"/>
   </g>
 
-  <!-- Golden orbit rings -->
-  <g transform="translate(200,200)" filter="url(#gold-glow)">
-    <ellipse cx="0" cy="0" rx="120" ry="30" fill="none"
-             stroke="url(#orbit-grad)" stroke-width="2"
-             transform="rotate(-35)"/>
-    <ellipse cx="0" cy="0" rx="110" ry="25" fill="none"
-             stroke="url(#orbit-grad)" stroke-width="1.5"
-             transform="rotate(45)"/>
+  <!-- 紫色圆形徽章 -->
+  <g transform="translate(200, 110)" filter="url(#badge-glow)">
+    <!-- 第一层：紫色徽章主体 -->
+    <circle cx="0" cy="0" r="45" fill="url(#purple-badge)"/>
+
+    <!-- 徽章高光 — 左上角微光 -->
+    <ellipse cx="-12" cy="-12" rx="20" ry="14" fill="#FFFFFF" opacity="0.12"
+             transform="rotate(-30, -12, -12)"/>
+
+    <!-- 徽章边缘环 — 精致金线 -->
+    <circle cx="0" cy="0" r="44" fill="none" stroke="#C49B3C" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="0" cy="0" r="46" fill="none" stroke="#F59E0B" stroke-width="0.5" opacity="0.25"/>
+
+    <!-- 白色X字母 — 干净、精确、居中 -->
+    <g transform="translate(0,0)">
+      <path d="M-18,-20 L18,20" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+      <path d="M18,-20 L-18,20" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    </g>
   </g>
 
-  <!-- White circular wafer (pixel base) -->
-  <circle cx="200" cy="200" r="48" fill="#FFFFFF" opacity="0.95"/>
-  <circle cx="200" cy="200" r="46" fill="none" stroke="#E8E0D5" stroke-width="0.5"/>
-  <circle cx="200" cy="200" r="48" fill="none" stroke="#C4A35A" stroke-width="0.3" opacity="0.3"/>
-  <circle cx="200" cy="200" r="40" fill="none" stroke="#E8E0D5" stroke-width="0.3" opacity="0.2"/>
+  <!-- 精密聚光效果 — 集中在徽章区域的细微光柱 -->
+  <ellipse cx="200" cy="110" rx="12" ry="50" fill="#FFFFFF" opacity="0.04"/>
 
-  <!-- Electric Purple X -->
-  <g transform="translate(200,200)">
-    <path d="M-28,-30 L28,30" stroke="url(#purple-x)" stroke-width="16" stroke-linecap="round"/>
-    <path d="M28,-30 L-28,30" stroke="url(#purple-x)" stroke-width="16" stroke-linecap="round"/>
-    <!-- X edge highlight -->
-    <path d="M-28,-30 L28,30" stroke="#B07CC6" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
-    <path d="M28,-30 L-28,30" stroke="#B07CC6" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
-  </g>
-
-  <!-- Lemon yellow photon dot at center -->
-  <g transform="translate(200,200)" filter="url(#yellow-glow)">
-    <circle cx="0" cy="0" r="7" fill="#FFD700"/>
-    <circle cx="0" cy="0" r="4" fill="#FFF8DC"/>
-    <circle cx="0" cy="0" r="12" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.6"/>
-  </g>
-
-  <!-- PhotonWealth · Xinova -->
-  <text x="200" y="445" text-anchor="middle"
+  <!-- PhotonWealth · Xinnova — 深金属金 -->
+  <text x="200" y="210" text-anchor="middle"
         font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-        font-size="24" font-weight="600" letter-spacing="3"
-        fill="#FFFFFF">PhotonWealth · Xinova</text>
+        font-size="22" font-weight="700" letter-spacing="2.5"
+        fill="url(#gold-text)" filter="url(#gold-shimmer)">PhotonWealth · Xinnova</text>
 
-  <!-- light · gold · insight -->
-  <text x="200" y="478" text-anchor="middle"
+  <!-- FROM PHOTON TO WEALTH — 紫色全大写 -->
+  <text x="200" y="250" text-anchor="middle"
         font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-        font-size="11" letter-spacing="5"
-        fill="#C4A35A" opacity="0.8">light · gold · insight</text>
+        font-size="11" font-weight="600" letter-spacing="4.5"
+        fill="#7C3AED" opacity="0.85">FROM PHOTON TO WEALTH</text>
+
+  <!-- 分割线 — 精致金线 -->
+  <line x1="140" y1="275" x2="260" y2="275" stroke="#C49B3C" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- BUILD THE EDGE. CASH IT OUT. — 白色小字 -->
+  <text x="200" y="305" text-anchor="middle"
+        font-family="'Inter','Helvetica Neue',Arial,sans-serif"
+        font-size="9" font-weight="400" letter-spacing="3.5"
+        fill="#FFFFFF" opacity="0.6">BUILD THE EDGE. CASH IT OUT.</text>
 </svg>

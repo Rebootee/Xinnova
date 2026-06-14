@@ -1,54 +1,35 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <!-- 纯黑底 -->
-    <rect id="bg" x="0" y="0" width="400" height="400" fill="#000000"/>
+    <!-- 哑光黑底 -->
+    <radialGradient id="bg-light" cx="50%" cy="50%" r="70%">
+      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:1" />
+    </radialGradient>
 
-    <!-- 太阳辐射光芒 -->
-    <g id="sunburst">
-      <!-- 12道对称金色射线 -->
-      <line x1="200" y1="200" x2="200" y2="40" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="200" y2="360" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="40" y2="200" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="360" y2="200" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="87" y2="87" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="313" y2="87" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="87" y2="313" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <line x1="200" y1="200" x2="313" y2="313" stroke="#C4A35A" stroke-width="1.5" opacity="0.6"/>
-      <!-- 中间4道 -->
-      <line x1="200" y1="200" x2="117" y2="52" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="283" y2="52" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="117" y2="348" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="283" y2="348" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="52" y2="117" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="348" y2="117" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="52" y2="283" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-      <line x1="200" y1="200" x2="348" y2="283" stroke="#C4A35A" stroke-width="1" opacity="0.4"/>
-    </g>
+    <!-- 紫色徽章 -->
+    <radialGradient id="purple-badge" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#7C3AED;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
+    </radialGradient>
 
-    <!-- 金轨道渐变 -->
-    <linearGradient id="orbit-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#C4A35A;stop-opacity:0" />
-      <stop offset="30%" style="stop-color:#F5D68E;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#F5D68E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#C4A35A;stop-opacity:0" />
-    </linearGradient>
+    <!-- 琥珀色光晕 -->
+    <radialGradient id="amber-halo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.35" />
+      <stop offset="40%" style="stop-color:#D97706;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:0" />
+    </radialGradient>
 
-    <!-- 紫X渐变 -->
-    <linearGradient id="purple-x" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9B59B6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7B2D8E;stop-opacity:1" />
-    </linearGradient>
-
-    <!-- 发光滤镜 -->
-    <filter id="gold-glow">
-      <feGaussianBlur stdDeviation="3" result="blur"/>
+    <filter id="halo-glow">
+      <feGaussianBlur stdDeviation="20" result="bigBlur"/>
       <feMerge>
-        <feMergeNode in="blur"/>
+        <feMergeNode in="bigBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="yellow-glow">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
+
+    <filter id="badge-glow">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -56,49 +37,31 @@
     </filter>
   </defs>
 
-  <!-- 纯黑背景 -->
-  <use href="#bg"/>
+  <!-- 哑光黑底 -->
+  <rect x="0" y="0" width="400" height="400" fill="url(#bg-light)"/>
 
-  <!-- 金色太阳辐射（12道对称光芒） -->
-  <g opacity="0.7">
-    <use href="#sunburst"/>
+  <!-- 聚光照明 -->
+  <ellipse cx="200" cy="200" rx="150" ry="150" fill="#FFFFFF" opacity="0.02"/>
+
+  <!-- 琥珀色光晕 -->
+  <g transform="translate(200, 200)" filter="url(#halo-glow)">
+    <circle cx="0" cy="0" r="70" fill="url(#amber-halo)"/>
   </g>
 
-  <!-- 金色轨道圆环（斜角环绕） -->
-  <g transform="translate(200,200)" filter="url(#gold-glow)">
-    <!-- 轨道1：倾斜椭圆 -->
-    <ellipse cx="0" cy="0" rx="120" ry="30" fill="none"
-             stroke="url(#orbit-grad)" stroke-width="2"
-             transform="rotate(-35)"/>
-    <!-- 轨道2：相反方向 -->
-    <ellipse cx="0" cy="0" rx="110" ry="25" fill="none"
-             stroke="url(#orbit-grad)" stroke-width="1.5"
-             transform="rotate(45)"/>
+  <!-- 紫色圆形徽章 + 白色X -->
+  <g transform="translate(200, 200)" filter="url(#badge-glow)">
+    <circle cx="0" cy="0" r="75" fill="url(#purple-badge)"/>
+    <ellipse cx="-18" cy="-18" rx="32" ry="22" fill="#FFFFFF" opacity="0.1"
+             transform="rotate(-30, -18, -18)"/>
+    <circle cx="0" cy="0" r="73.5" fill="none" stroke="#C49B3C" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="0" cy="0" r="76.5" fill="none" stroke="#F59E0B" stroke-width="0.5" opacity="0.25"/>
+
+    <g transform="translate(0,0)">
+      <path d="M-30,-34 L30,34" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
+      <path d="M30,-34 L-30,34" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
+    </g>
   </g>
 
-  <!-- 中心白色晶圆底座 -->
-  <circle cx="200" cy="200" r="48" fill="#FFFFFF" opacity="0.95"/>
-  <circle cx="200" cy="200" r="46" fill="none" stroke="#E8E0D5" stroke-width="0.5"/>
-  <!-- 晶圆金属纹理环 -->
-  <circle cx="200" cy="200" r="48" fill="none" stroke="#C4A35A" stroke-width="0.3" opacity="0.3"/>
-  <circle cx="200" cy="200" r="40" fill="none" stroke="#E8E0D5" stroke-width="0.3" opacity="0.2"/>
-
-  <!-- 紫色X（粗壮立体） -->
-  <g transform="translate(200,200)">
-    <path d="M-28,-30 L28,30" stroke="url(#purple-x)" stroke-width="16" stroke-linecap="round"/>
-    <path d="M28,-30 L-28,30" stroke="url(#purple-x)" stroke-width="16" stroke-linecap="round"/>
-  </g>
-
-  <!-- X边缘高光 -->
-  <g transform="translate(200,200)">
-    <path d="M-28,-30 L28,30" stroke="#B07CC6" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
-    <path d="M28,-30 L-28,30" stroke="#B07CC6" stroke-width="4" stroke-linecap="round" opacity="0.4"/>
-  </g>
-
-  <!-- 柠檬黄光子核心（X正中心交汇点） -->
-  <g transform="translate(200,200)" filter="url(#yellow-glow)">
-    <circle cx="0" cy="0" r="7" fill="#FFD700"/>
-    <circle cx="0" cy="0" r="4" fill="#FFF8DC"/>
-    <circle cx="0" cy="0" r="12" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.6"/>
-  </g>
+  <!-- 精密聚光柱 -->
+  <ellipse cx="200" cy="200" rx="20" ry="80" fill="#FFFFFF" opacity="0.03"/>
 </svg>
