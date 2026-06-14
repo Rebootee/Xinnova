@@ -1,5 +1,5 @@
 <h1 align="center">PhotonWealth · Xinnova</h1>
-<p align="center"><em>light · gold · insight</em></p>
+<p align="center"><em>Photon · Tech · insight</em></p>
 <p align="center"><strong>CIS technology &amp; Semiconductor Capital</strong></p>
 
 ---
