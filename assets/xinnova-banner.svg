@@ -1,0 +1,6 @@
+<svg width="600" height="120" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="120" fill="#0a0a0a"/>
+  <text x="300" y="52" text-anchor="middle" font-family="Inter,Helvetica Neue,sans-serif" font-weight="200" font-size="38" fill="#fafaf8" letter-spacing="6">XINNOVA</text>
+  <text x="300" y="76" text-anchor="middle" font-family="Inter,sans-serif" font-weight="300" font-size="10" fill="#737373" letter-spacing="4">FROM PHOTON TO WEALTH</text>
+  <line x1="200" y1="88" x2="400" y2="88" stroke="#002FA7" stroke-width="0.5"/>
+</svg>
