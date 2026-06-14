@@ -1,67 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
   <defs>
-    <!-- 哑光黑底 -->
     <radialGradient id="bg-light" cx="50%" cy="50%" r="70%">
-      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#1C1814;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#141210;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:1" />
     </radialGradient>
 
-    <!-- 紫色徽章 -->
-    <radialGradient id="purple-badge" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
-      <stop offset="60%" style="stop-color:#7C3AED;stop-opacity:1" />
+    <radialGradient id="purple-badge" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#C084FC;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#7C3AED;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
     </radialGradient>
-
-    <!-- 琥珀色光晕 -->
-    <radialGradient id="amber-halo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.35" />
-      <stop offset="40%" style="stop-color:#D97706;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#D97706;stop-opacity:0" />
-    </radialGradient>
-
-    <filter id="halo-glow">
-      <feGaussianBlur stdDeviation="20" result="bigBlur"/>
-      <feMerge>
-        <feMergeNode in="bigBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <filter id="badge-glow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
-  <!-- 哑光黑底 -->
   <rect x="0" y="0" width="400" height="400" fill="url(#bg-light)"/>
 
-  <!-- 聚光照明 -->
-  <ellipse cx="200" cy="200" rx="150" ry="150" fill="#FFFFFF" opacity="0.02"/>
+  <g transform="translate(200, 200)">
+    <circle cx="0" cy="0" r="85" fill="url(#purple-badge)"/>
+    <ellipse cx="-26" cy="-24" rx="38" ry="26" fill="#FFFFFF" opacity="0.1"
+             transform="rotate(-25, -26, -24)"/>
+    <circle cx="0" cy="0" r="83.5" fill="none" stroke="#C49B3C" stroke-width="1.5" opacity="0.5"/>
+    <circle cx="0" cy="0" r="87" fill="none" stroke="#FFD700" stroke-width="0.6" opacity="0.2"/>
 
-  <!-- 琥珀色光晕 -->
-  <g transform="translate(200, 200)" filter="url(#halo-glow)">
-    <circle cx="0" cy="0" r="70" fill="url(#amber-halo)"/>
-  </g>
-
-  <!-- 紫色圆形徽章 + 白色X -->
-  <g transform="translate(200, 200)" filter="url(#badge-glow)">
-    <circle cx="0" cy="0" r="75" fill="url(#purple-badge)"/>
-    <ellipse cx="-18" cy="-18" rx="32" ry="22" fill="#FFFFFF" opacity="0.1"
-             transform="rotate(-30, -18, -18)"/>
-    <circle cx="0" cy="0" r="73.5" fill="none" stroke="#C49B3C" stroke-width="1.2" opacity="0.5"/>
-    <circle cx="0" cy="0" r="76.5" fill="none" stroke="#F59E0B" stroke-width="0.5" opacity="0.25"/>
-
-    <g transform="translate(0,0)">
-      <path d="M-30,-34 L30,34" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
-      <path d="M30,-34 L-30,34" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
+    <g transform="translate(0, 2)">
+      <path d="M-34,-38 L34,38" stroke="#FFFFFF" stroke-width="19" stroke-linecap="round"/>
+      <path d="M34,-38 L-34,38" stroke="#FFFFFF" stroke-width="19" stroke-linecap="round"/>
     </g>
   </g>
-
-  <!-- 精密聚光柱 -->
-  <ellipse cx="200" cy="200" rx="20" ry="80" fill="#FFFFFF" opacity="0.03"/>
 </svg>

@@ -1,112 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="400" height="520">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
   <defs>
-    <!-- 哑光黑底渐变 — 极细微的明暗变化营造深色高级感 -->
+    <!-- 哑光黑底 -->
     <radialGradient id="bg-light" cx="50%" cy="35%" r="70%">
-      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#1C1814;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#141210;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#0A0A0A;stop-opacity:1" />
     </radialGradient>
 
-    <!-- 紫色圆形徽章渐变 — 中心亮紫到边缘深紫 -->
-    <radialGradient id="purple-badge" cx="50%" cy="45%" r="55%">
-      <stop offset="0%" style="stop-color:#A855F7;stop-opacity:1" />
-      <stop offset="60%" style="stop-color:#7C3AED;stop-opacity:1" />
+    <!-- 紫色圆形徽章 -->
+    <radialGradient id="purple-badge" cx="45%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#C084FC;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#A855F7;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#7C3AED;stop-opacity:1" />
       <stop offset="100%" style="stop-color:#5B21B6;stop-opacity:1" />
     </radialGradient>
 
-    <!-- 琥珀色/金色光晕 — 多层柔光 -->
-    <radialGradient id="amber-halo" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.35" />
-      <stop offset="40%" style="stop-color:#D97706;stop-opacity:0.15" />
-      <stop offset="100%" style="stop-color:#D97706;stop-opacity:0" />
-    </radialGradient>
-
-    <!-- 深金属金色文字渐变 — 单色高能金属感 -->
+    <!-- 深金属金渐变 -->
     <linearGradient id="gold-text" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#C49B3C;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#A67C2E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#D4A843;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#C49B3C;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#B8860B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A67C2E;stop-opacity:1" />
     </linearGradient>
-
-    <!-- 琥珀外发光滤镜 -->
-    <filter id="halo-glow">
-      <feGaussianBlur stdDeviation="18" result="bigBlur"/>
-      <feMerge>
-        <feMergeNode in="bigBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- 徽章微发光 -->
-    <filter id="badge-glow">
-      <feGaussianBlur stdDeviation="6" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-
-    <!-- 金色文字微光 -->
-    <filter id="gold-shimmer">
-      <feGaussianBlur stdDeviation="1" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
   </defs>
 
   <!-- 哑光黑背景 -->
-  <rect x="0" y="0" width="400" height="520" fill="url(#bg-light)"/>
+  <rect x="0" y="0" width="400" height="500" fill="url(#bg-light)"/>
 
-  <!-- 精确的聚光照明 — 顶部中心高光区域 -->
-  <ellipse cx="200" cy="120" rx="160" ry="140" fill="#FFFFFF" opacity="0.03"/>
+  <!-- 紫色徽章 -->
+  <g transform="translate(200, 98)">
+    <circle cx="0" cy="0" r="58" fill="url(#purple-badge)"/>
+    <ellipse cx="-18" cy="-16" rx="26" ry="18" fill="#FFFFFF" opacity="0.1"
+             transform="rotate(-25, -18, -16)"/>
+    <circle cx="0" cy="0" r="57" fill="none" stroke="#C49B3C" stroke-width="1.2" opacity="0.5"/>
+    <circle cx="0" cy="0" r="59.5" fill="none" stroke="#FFD700" stroke-width="0.6" opacity="0.25"/>
 
-  <!-- 琥珀色/金色光晕 — 从徽章周围散发 -->
-  <g transform="translate(200, 110)" filter="url(#halo-glow)">
-    <circle cx="0" cy="0" r="65" fill="url(#amber-halo)"/>
-  </g>
-
-  <!-- 紫色圆形徽章 -->
-  <g transform="translate(200, 110)" filter="url(#badge-glow)">
-    <!-- 第一层：紫色徽章主体 -->
-    <circle cx="0" cy="0" r="45" fill="url(#purple-badge)"/>
-
-    <!-- 徽章高光 — 左上角微光 -->
-    <ellipse cx="-12" cy="-12" rx="20" ry="14" fill="#FFFFFF" opacity="0.12"
-             transform="rotate(-30, -12, -12)"/>
-
-    <!-- 徽章边缘环 — 精致金线 -->
-    <circle cx="0" cy="0" r="44" fill="none" stroke="#C49B3C" stroke-width="1.2" opacity="0.5"/>
-    <circle cx="0" cy="0" r="46" fill="none" stroke="#F59E0B" stroke-width="0.5" opacity="0.25"/>
-
-    <!-- 白色X字母 — 干净、精确、居中 -->
-    <g transform="translate(0,0)">
-      <path d="M-18,-20 L18,20" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
-      <path d="M18,-20 L-18,20" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round"/>
+    <!-- 白色X -->
+    <g transform="translate(0, 2)">
+      <path d="M-23,-26 L23,26" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/>
+      <path d="M23,-26 L-23,26" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"/>
     </g>
   </g>
 
-  <!-- 精密聚光效果 — 集中在徽章区域的细微光柱 -->
-  <ellipse cx="200" cy="110" rx="12" ry="50" fill="#FFFFFF" opacity="0.04"/>
-
   <!-- PhotonWealth · Xinnova — 深金属金 -->
-  <text x="200" y="210" text-anchor="middle"
+  <text x="200" y="215" text-anchor="middle"
         font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-        font-size="22" font-weight="700" letter-spacing="2.5"
-        fill="url(#gold-text)" filter="url(#gold-shimmer)">PhotonWealth · Xinnova</text>
+        font-size="24" font-weight="700" letter-spacing="2.5"
+        fill="url(#gold-text)">PhotonWealth · Xinnova</text>
 
   <!-- FROM PHOTON TO WEALTH — 紫色全大写 -->
-  <text x="200" y="250" text-anchor="middle"
+  <text x="200" y="255" text-anchor="middle"
         font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-        font-size="11" font-weight="600" letter-spacing="4.5"
+        font-size="12" font-weight="600" letter-spacing="5"
         fill="#7C3AED" opacity="0.85">FROM PHOTON TO WEALTH</text>
 
-  <!-- 分割线 — 精致金线 -->
-  <line x1="140" y1="275" x2="260" y2="275" stroke="#C49B3C" stroke-width="0.5" opacity="0.3"/>
+  <!-- 金分割线 -->
+  <line x1="130" y1="280" x2="270" y2="280" stroke="#C49B3C" stroke-width="0.5" opacity="0.25"/>
 
-  <!-- BUILD THE EDGE. CASH IT OUT. — 白色小字 -->
-  <text x="200" y="305" text-anchor="middle"
+  <!-- BUILD THE EDGE. CASH IT OUT. — 白色 -->
+  <text x="200" y="315" text-anchor="middle"
         font-family="'Inter','Helvetica Neue',Arial,sans-serif"
-        font-size="9" font-weight="400" letter-spacing="3.5"
-        fill="#FFFFFF" opacity="0.6">BUILD THE EDGE. CASH IT OUT.</text>
+        font-size="10" font-weight="400" letter-spacing="4"
+        fill="#FFFFFF" opacity="0.55">BUILD THE EDGE. CASH IT OUT.</text>
 </svg>
